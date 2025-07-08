@@ -1,0 +1,765 @@
+{
+  "answers" :[
+
+    {
+      "intent": ["test"],
+      "answer": ["Dies ist ein Test."],
+      "question": ["Möchtest du weiter machen?"],
+      "selection": ["Dann schreibe eins."],
+      "list":[
+        {
+          "intent":["eins"],
+          "answer":["Dies ist die erste Unterliste."],
+          "question": ["Möchtest du weiter machen?"],
+          "selection": ["Dann schreibe zwei."],
+          "list": [
+            {
+              "intent": ["zwei"],
+              "answer": ["Dies ist die zweite Unterliste."],
+              "question": ["Möchtest du weiter machen?"],
+              "selection": ["Dann schreibe drei."],
+              "list": [
+                {
+                  "intent": ["drei"],
+                  "answer": ["Dies ist die dritte Unterliste"],
+                  "question": ["Möchtest du weiter machen?"],
+                  "selection": ["Dann schreibe vier."],
+                  "list":[
+                    {
+                      "intent": ["vier"],
+                      "answer": ["Dies ist die vierte Unterliste und das Ende des Tests."]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+  
+    {
+      "intent": ["hilfe", "erklärung", "funktioniert", "funktionieren", "funktionierst", "hilf", "helfen"],
+      "answer": ["Meine Aufgabe ist es, dir Informationen über Biome aus Minecraft zu geben. Ich kann dir etwas über die Wüste, den Sumpf, den Dschungel, das Eisbiom und die Badlands erzählen.",
+      "Ich bin hier, um dir Informationen über Minecraft-Biome zu geben, wie Wüste, Sumpf, Dschungel, Eisbiom und Badlands.",
+      "Meine Aufgabe ist es, dir Details zu den Biomen Wüste, Sumpf, Dschungel, Eis und Badlands in Minecraft zu erklären.",
+      "Ich kann dir Wissenswertes über verschiedene Minecraft-Biome wie Wüste, Sumpf, Dschungel, Eisbiom und Badlands liefern.",
+      "Gerne erzähle ich dir etwas über Minecraft-Biome wie Wüste, Sumpf, Dschungel, Eis und Badlands.",
+      "Ich helfe dir dabei, mehr über Biome in Minecraft zu erfahren, darunter Wüste, Sumpf, Dschungel, Eisbiom und Badlands."]
+    },
+
+    {
+      "intent": ["hallo", "hey", "hi"],
+      "answer": ["Hallo. Über welches Minecraft Biom möchtest du etwas wissen?",
+      "Hallo! Welches Minecraft-Biom interessiert dich?",
+      "Hi! Über welches Biom in Minecraft möchtest du mehr erfahren?",
+      "Hallo, welches Biom in Minecraft willst du genauer kennenlernen?",
+      "Hey! Zu welchem Minecraft-Biom brauchst du Informationen?",
+      "Hallo! Über welches Biom aus Minecraft möchtest du etwas wissen?"]
+    },
+
+  {
+    "intent": [
+      "wüste",
+      "wüstenbiom"
+    ],
+    "answer": ["In der Wüste findest du Sand, Kakteen und kaum Wasser. Tagsüber ruhig, nachts gefährlich.",
+    "Die Wüste bietet Sand und Kakteen, aber nur wenig Wasser – tagsüber friedlich, nachts voller Gefahren.",
+    "In der Wüste gibt es viel Sand und Kakteen, doch Wasser ist selten. Nachts wird es gefährlich.",
+    "Wüsten sind trocken, voller Sand und Kakteen – tagsüber ruhig, aber nachts kommen die Mobs.",
+    "Kaum Wasser, dafür Sand und Kakteen – die Wüste ist am Tag harmlos, aber nachts nicht zu unterschätzen.",
+    "Tagsüber ist es in der Wüste still, doch nachts wimmelt es von Gefahren – Sand und Kakteen findest du überall.",
+    "Sand und Kakteen prägen die Wüste – bei Tag friedlich, bei Nacht voller feindlicher Mobs.",
+    "Die heiße Wüste ist karg: viel Sand, Kakteen, kaum Wasser – doch in der Nacht wird sie gefährlich.",
+    "In der trockenen Wüste triffst du auf Sand und Kakteen – nachts solltest du wachsam sein."],
+    "question": ["Willst du mehr über die Wüste wissen? ",
+    "Möchtest du mehr über die Wüste wissen?",
+    "Soll ich dir noch mehr über die Wüste sagen?"],
+    "selection": ["Ich kann dir sagen, welche Strukturen, Mobs und Ressourcen du finden kannst.",
+    "Ich gebe dir eine Übersicht über die vorhandenen Strukturen, Kreaturen und Materialien.",
+    "Ich kann dir aufzeigen, welche Bauten, Gegner und Materialien es gibt.",
+    "Ich kann dir mitteilen, welche Strukturen, Mobs und Ressourcen dort vorkommen.",
+    "Ich nenne dir die verfügbaren Strukturen, Lebewesen und Ressourcen.",
+    "Ich kann dir erklären, welche Bauten, Tiere und Materialien du antreffen wirst.",
+    "Ich liste dir auf, welche Strukturen, Mobs und Ressourcen vorhanden sind.",
+    "Ich kann dir sagen, was du an Gebäuden, Gegnern und Ressourcen erwarten kannst."],
+    "list": [
+      {
+        "intent": [
+          "mobs",
+          "gegner",
+          "kreaturen"
+        ],
+        "answer": [
+          "Hier spawnen Husk-Zombies (sie brennen nicht bei Sonne), Skelette und Spinnen.",
+          "An diesem Ort erscheinen Husk-Zombies (sie verbrennen nicht im Sonnenlicht), Skelette und Spinnen.",
+          "Hier tauchen Husk-Zombies auf, die tagsüber nicht verbrennen, sowie Skelette und Spinnen.",
+          "In dieser Gegend spawnen Husk-Zombies – sie sind sonnenresistent – zusammen mit Skeletten und Spinnen.",
+          "Du findest hier Husk-Zombies (unempfindlich gegen Sonne), dazu auch Skelette und Spinnen.",
+          "Husk-Zombies, Skelette und Spinnen können hier erscheinen – die Husk-Zombies brennen dabei nicht bei Tageslicht.",
+          "An diesem Ort können Husk-Zombies (sie halten Sonnenlicht aus), Skelette und Spinnen auftauchen.",
+          "Hier begegnet man Husk-Zombies, die nicht bei Sonne verbrennen, sowie Skeletten und Spinnen.",
+          "Es spawnen Husk-Zombies (sonnenresistent), Skelette und Spinnen in diesem Gebiet."
+        ],
+        "question": "Möchtest du mehr über andere Mobs wissen?"
+      },
+      {
+        "intent": [
+          "strukturen",
+          "tempel",
+          "pyramide",
+          "gebäude",
+          "bauten"
+        ],
+        "answer": [
+          "Wüstentempel enthalten wertvollen Loot, aber Vorsicht: TNT-Falle im Boden!",
+          "In Wüstentempeln findest du wertvollen Loot – doch Achtung vor der TNT-Falle im Boden!",
+          "Wüstentempel bergen Schätze, aber pass auf: Unter dem Boden lauert eine TNT-Falle.",
+          "Du kannst in Wüstentempeln gute Beute machen, allerdings gibt es eine gefährliche TNT-Falle.",
+          "Wüstentempel enthalten wertvolle Items, doch direkt unter dem Boden ist eine TNT-Falle versteckt.",
+          "Hier findest du Wüstentempel mit Loot – tritt aber nicht auf die Druckplatte in der Mitte!",
+          "Wüstentempel lohnen sich wegen des Loots, aber die TNT-Falle darunter ist tückisch.",
+          "Vorsicht in Wüstentempeln: Neben dem Loot wartet eine gut versteckte TNT-Falle.",
+          "Die Beute im Wüstentempel ist großartig, doch ein falscher Schritt aktiviert TNT im Boden."
+        ],
+        "question": "Willst du wissen, wie du sie sicher betreten kannst?"
+      },
+      {
+        "intent": [
+          "ressourcen",
+          "kaktus",
+          "sand",
+          "materialien"
+        ],
+        "answer": [
+          "Du findest hauptsächlich Sand, Sandstein und Kakteen – gut für Glas, Farben und XP-Farmen.",
+          "Hier gibt es vor allem Sand, Sandstein und Kakteen – ideal für Glas, Farbstoffe und XP-Farmen.",
+          "Du triffst hauptsächlich auf Sand, Sandstein und Kakteen – nützlich für Glasherstellung, Farben und XP.",
+          "In dieser Gegend findest du viel Sand, Sandstein und Kakteen – perfekt für Glas, Grünfärbung und Farmen.",
+          "Der Großteil der Ressourcen besteht aus Sand, Sandstein und Kakteen – praktisch für Glas und XP-Grinder.",
+          "Sand, Sandstein und Kakteen sind hier reichlich vorhanden – super für Glas, Farbstoffe und XP-Farmen.",
+          "Diese Region bietet viel Sand, Sandstein und Kakteen – ideal zum Craften und Leveln.",
+          "Hauptsächlich wirst du hier Sand, Sandstein und Kakteen finden – gut für Bauprojekte und XP-Farmen.",
+          "Kakteen, Sand und Sandstein dominieren diese Gegend – nützlich für Glas, Farbe und Erfahrungspunkte."
+        ],
+        "question": "Willst du wissen, was du daraus craften kannst?"
+      }
+    ]
+  },
+  {
+    "intent": [
+      "dschungel",
+      "jungle",
+      "dschungelbiom"
+    ],
+    "answer": ["Der Dschungel ist dicht bewachsen, voller Tiere und bietet viele Möglichkeiten.",
+    "Der Dschungel ist üppig bewachsen, lebendig und steckt voller Möglichkeiten.",
+    "Ein dichter Dschungel mit vielen Tieren und reichlich Potenzial zum Erkunden und Bauen.",
+    "Dichter Bewuchs, zahlreiche Tiere und jede Menge Chancen – das ist der Dschungel.",
+    "Im Dschungel wimmelt es vor Leben, Pflanzen und kreativen Möglichkeiten.",
+    "Hier erwartet dich ein dichter Dschungel mit tierischem Leben und vielen Entfaltungsmöglichkeiten.",
+    "Der dichte Dschungel bietet nicht nur Flora und Fauna, sondern auch kreative Freiräume.",
+    "Voller Pflanzen, Tiere und Ideen – der Dschungel steckt voller Leben und Möglichkeiten.",
+    "Ein lebendiger, dichter Dschungel, der dir viele Optionen für Abenteuer und Bau bietet."],
+    "question": ["Willst du mehr über den Dschungel wissen? Ich kann dir sagen was es für Tiere gibt, welche Strukturen man finden kann oder was für Holzarten der Dschungel bietet.",
+    "Willst du mehr über den Dschungel wissen?",
+    "Möchtest du mehr über den Dschungel wissen?",
+    "Soll ich dir noch mehr über den Dschungel sagen?"],
+    "selection": ["Ich kann dir sagen, welche Strukturen, Mobs und Ressourcen du finden kannst.",
+    "Ich gebe dir eine Übersicht über die vorhandenen Strukturen, Kreaturen und Materialien.",
+    "Ich kann dir aufzeigen, welche Bauten, Gegner und Materialien es gibt.",
+    "Ich kann dir mitteilen, welche Strukturen, Mobs und Ressourcen dort vorkommen.",
+    "Ich nenne dir die verfügbaren Strukturen, Lebewesen und Ressourcen.",
+    "Ich kann dir erklären, welche Bauten, Tiere und Materialien du antreffen wirst.",
+    "Ich liste dir auf, welche Strukturen, Mobs und Ressourcen vorhanden sind.",
+    "Ich kann dir sagen, was du an Gebäuden, Gegnern und Ressourcen erwarten kannst."],
+    "list": [
+      {
+        "intent": [
+          "tiere",
+          "mobs",
+          "kreaturen",
+          "gegner"
+        ],
+        "answer": [
+          "Hier leben Papageien, Pandas, Ozelots und manchmal Creeper im Schatten.",
+          "In diesem Gebiet triffst du auf Papageien, Pandas, Ozelots – und gelegentlich Creeper im Schatten.",
+          "Hier findest du Papageien, Pandas und Ozelots – aber auch Creeper lauern oft im Dunkeln.",
+          "Papageien, Pandas und Ozelots sind hier heimisch, doch Vorsicht vor Creepern im Schatten.",
+          "Diese Region beheimatet Papageien, Pandas, Ozelots – und schattige Ecken, in denen Creeper spawnen.",
+          "Du begegnest hier Papageien, Pandas und Ozelots – mit der Gefahr von Creepern in dunklen Bereichen.",
+          "Papageien flattern durch die Bäume, Pandas und Ozelots streifen umher – und Creeper verstecken sich im Schatten.",
+          "In diesem Biom leben Pandas, Papageien und Ozelots – aber auch Creeper schleichen durchs Dickicht.",
+          "Zwischen Papageien, Pandas und Ozelots solltest du die Creeper im Schatten nicht unterschätzen."
+        ],
+        "question": "Willst du mehr über diese Tiere erfahren?"
+      },
+      {
+        "intent": [
+          "strukturen",
+          "tempel",
+          "gebäude",
+          "bauten"
+        ],
+        "answer": [
+          "Dschungeltempel enthalten versteckte Fallen und Rätsel mit Belohnungen.",
+          "Dschungeltempel verbergen Fallen und Rätsel, die dich zu wertvollen Belohnungen führen.",
+          "In Dschungeltempeln erwarten dich versteckte Mechanismen, Fallen und lohnenswerter Loot.",
+          "Diese Tempel enthalten clevere Rätsel und tückische Fallen – mit Belohnungen für Mutige.",
+          "Im Dschungeltempel findest du versteckte Schätze, doch zuvor musst du Fallen und Rätsel überwinden.",
+          "Dschungeltempel bieten eine Mischung aus Gefahren und Rätseln – am Ende winkt eine Belohnung.",
+          "Achte auf versteckte Fallen und Rätsel in Dschungeltempeln – wer sie meistert, wird belohnt.",
+          "Hinter Fallen und Rätseln verbergen Dschungeltempel wertvolle Items.",
+          "Dschungeltempel sind voller Geheimnisse: Fallen, Rätsel und versteckte Belohnungen."
+        ],
+        "question": "Willst du wissen, was du dort finden kannst?"
+      },
+      {
+        "intent": [
+          "holz",
+          "dschungelholz",
+          "bäume",
+          "ressourcen",
+          "materialien"
+        ],
+        "answer": [
+          "Riesige Dschungelbäume liefern viel Holz – ideal für Baumhäuser und zum craften.",
+          "Die riesigen Dschungelbäume bieten massenhaft Holz – perfekt für Baumhäuser und Bauprojekte.",
+          "Dschungelbäume wachsen besonders hoch und liefern viel Holz – ideal zum Craften und Bauen.",
+          "Hier findest du gigantische Bäume, die viel Holz liefern – perfekt für Baumhäuser und Werkbänke.",
+          "Mit ihrem reichen Holzvorrat eignen sich Dschungelbäume bestens für Baumhäuser und Crafting.",
+          "Diese mächtigen Bäume liefern viel Dschungelholz – super für kreative Bauideen.",
+          "Riesige Bäume im Dschungel spenden jede Menge Holz – ideal zum Bauen und Craften.",
+          "Dschungelbäume sind groß und ergiebig – perfekt für Holzfarmen und Baumhaus-Bauten.",
+          "Das viele Holz der Dschungelbäume macht sie zur Top-Wahl für Crafting und Baumhäuser."
+        ],
+        "question": "Willst du wissen, wie man ein Baumhaus baut?"
+      }
+    ]
+  },
+  {
+    "intent": [
+      "schnee",
+      "eis",
+      "schneebiom",
+      "eisbiom"
+    ],
+    "answer": ["Im Schneebiom findest du Eis, Schnee und gefrorene Seen – aber es ist gefährlich.",
+    "Das Schneebiom ist voller Eis, Schnee und zugefrorener Seen – doch es birgt Gefahren.",
+    "In Schneebiomen findest du viel Schnee, Eis und gefrorene Gewässer – sei vorsichtig!",
+    "Hier gibt es Schnee, Eis und vereiste Seen – aber unterschätze nicht die Gefahr.",
+    "Schnee, Eis und gefrorene Seen prägen das Biom – doch es ist tückisch und kalt.",
+    "Im kalten Schneebiom triffst du auf Eisflächen und Schnee – Gefahren inklusive.",
+    "Das Schneebiom wirkt ruhig mit Eis und Schnee, doch es kann schnell gefährlich werden.",
+    "Zwischen Eis, Schnee und gefrorenen Seen lauern im Schneebiom auch Risiken.",
+    "Obwohl das Schneebiom schön wirkt mit Eis und Schnee, ist es nicht ungefährlich."],
+    "question": 
+    ["Willst du mehr über das Schneebiom wissen?",
+    "Möchtest du mehr über das Schneebiom wissen?",
+    "Soll ich dir noch mehr über das Schneebiom sagen?"],
+    "selection": ["Ich kann dir sagen, welche Strukturen, Mobs und Ressourcen du finden kannst.",
+    "Ich gebe dir eine Übersicht über die vorhandenen Strukturen, Kreaturen und Materialien.",
+    "Ich kann dir aufzeigen, welche Bauten, Gegner und Materialien es gibt.",
+    "Ich kann dir mitteilen, welche Strukturen, Mobs und Ressourcen dort vorkommen.",
+    "Ich nenne dir die verfügbaren Strukturen, Lebewesen und Ressourcen.",
+    "Ich kann dir erklären, welche Bauten, Tiere und Materialien du antreffen wirst.",
+    "Ich liste dir auf, welche Strukturen, Mobs und Ressourcen vorhanden sind.",
+    "Ich kann dir sagen, was du an Gebäuden, Gegnern und Ressourcen erwarten kannst."],
+    "list": [
+      {
+        "intent": [
+          "mobs",
+          "tiere",
+          "gegner",
+          "kreaturen"
+        ],
+        "answer": [
+          "Eisbären, Strays (kalte Skelette mit Verlangsamung) und normale Zombies kommen hier vor.",
+          "In diesem Biom findest du Eisbären, Strays (Kälteskelette mit Verlangsamung) und normale Zombies.",
+          "Hier tauchen Eisbären, Strays mit Verlangsamungseffekt und auch klassische Zombies auf.",
+          "Eisbären, kalte Strays mit Slowness und ganz normale Zombies erscheinen in dieser kalten Region.",
+          "Dieses Gebiet wird von Eisbären, Strays (Skelette mit Kälteeffekt) und Zombies bewohnt.",
+          "Du begegnest hier Eisbären, den verlangsamenden Strays und auch gewöhnlichen Zombies.",
+          "Neben Eisbären und Zombies findest du hier auch Strays, die dich mit Verlangsamung treffen.",
+          "In kalten Biomen spawnen Strays mit Slowness, normale Zombies und manchmal Eisbären.",
+          "Eisbären durchstreifen das Land, während Strays und Zombies nachts zur Gefahr werden."
+        ],
+        "question": "Willst du mehr über diese Mobs erfahren?"
+      },
+      {
+        "intent": [
+          "strukturen",
+          "iglu",
+          "gebäude",
+          "bauten"
+        ],
+        "answer": [
+          "Iglus mit geheimem Keller können Dorfbewohner und Zombies enthalten – nützlich für Heilung.",
+          "Manche Iglus haben einen geheimen Keller mit einem Dorfbewohner und einem Zombie – perfekt für Heil-Experimente.",
+          "In Iglus kannst du versteckte Keller finden, oft mit einem Zombie und einem Dorfbewohner – ideal zum Heilen.",
+          "Einige Iglus enthalten einen geheimen Raum mit Zombie und Dorfbewohner – nützlich zum Testen von Heilmethoden.",
+          "Unter bestimmten Iglus befindet sich ein versteckter Keller mit einem infizierten und einem normalen Dorfbewohner.",
+          "Geheime Iglukeller beherbergen manchmal einen Zombie und einen Dorfbewohner – perfekt für Heiltrank-Nutzung.",
+          "Wenn du Glück hast, findest du ein Iglu mit Keller – dort gibt es oft einen Zombie und einen Dorfbewohner.",
+          "Versteckte Keller unter Iglus enthalten manchmal Dorfbewohner und Zombies – hilfreich zum Kurieren.",
+          "Iglus mit Geheimgängen können Heil-Setups enthalten: ein Dorfbewohner und ein Zombie nebeneinander."
+        ],
+        "question": "Willst du wissen, wie man sie nutzt?"
+      },
+      {
+        "intent": [
+          "ressourcen",
+          "eis",
+          "schnee",
+          "materialien"
+        ],
+        "answer": [
+          "Mit einer Behutsamkeits-Spitzhacke kannst du Eis abbauen – ideal für schnelle Wasserwege.",
+          "Mit einer Spitzhacke mit Behutsamkeit kannst du Eisblöcke abbauen – perfekt für Wasserstraßen.",
+          "Behutsamkeit erlaubt dir, Eis unbeschädigt abzubauen – super für schnelle Transportwege.",
+          "Eis lässt sich mit einer Behutsamkeits-Spitzhacke ernten – ideal für Eisbahnen und Wasserkanäle.",
+          "Nur mit Behutsamkeit kannst du Eis abbauen, ohne es zu zerstören – gut für schnelle Wege.",
+          "Zum Abbau von Eis brauchst du Behutsamkeit – nützlich für Wassertransporte.",
+          "Mit Behutsamkeit sammelst du Eisblöcke ein – praktisch für Gleiterouten und Eisstraßen.",
+          "Eis kann mit einer passenden Behutsamkeits-Spitzhacke abgebaut werden – perfekt für Wege mit Booten.",
+          "Dank Behutsamkeit bleibt Eis erhalten – ideal zum Bauen von schnellen Wasserwegen."
+        ],
+        "question": "Willst du mehr über Eisverwendung wissen?"
+      }
+    ]
+  },
+  {
+    "intent": [
+      "mesa",
+      "badlands",
+      "terrakotta",
+      "mesabiom"
+    ],
+    "answer": ["Die Mesa ist ein farbenfrohes Biom voller Terrakotta und Schluchten.",
+    "Die Mesa ist ein buntes Biom mit vielen Terrakotta-Schichten und tiefen Schluchten.",
+    "In der Mesa findet man farbenfrohe Terrakotta und beeindruckende Schluchten.",
+    "Das Mesa-Biom besticht durch seine farbenprächtige Terrakotta und große Schluchten.",
+    "Terrakotta und steile Schluchten prägen das farbenfrohe Mesa-Biom.",
+    "Das Biom Mesa ist bekannt für seine bunten Terrakotta-Schichten und weiten Schluchten."],
+    "question": ["Willst du mehr über die Badlands wissen?",
+    "Möchtest du mehr über das Mesabiom wissen?",
+    "Soll ich dir noch mehr über die Mesa sagen?"],
+    "selection": ["Ich kann dir sagen, welche Strukturen, Mobs und Ressourcen du finden kannst.",
+    "Ich gebe dir eine Übersicht über die vorhandenen Strukturen, Kreaturen und Materialien.",
+    "Ich kann dir aufzeigen, welche Bauten, Gegner und Materialien es gibt.",
+    "Ich kann dir mitteilen, welche Strukturen, Mobs und Ressourcen dort vorkommen.",
+    "Ich nenne dir die verfügbaren Strukturen, Lebewesen und Ressourcen.",
+    "Ich kann dir erklären, welche Bauten, Tiere und Materialien du antreffen wirst.",
+    "Ich liste dir auf, welche Strukturen, Mobs und Ressourcen vorhanden sind.",
+    "Ich kann dir sagen, was du an Gebäuden, Gegnern und Ressourcen erwarten kannst."],
+    "list": [
+      {
+        "intent": [
+          "mobs",
+          "gegner",
+          "kreaturen"
+        ],
+        "answer": [
+          "Im Mesa Biom findest du nur kleine Hasen und Nachts normale Monster wie Zombies und Skelette.",
+          "Im Mesa-Biom leben nur kleine Hasen, und nachts erscheinen dort gewöhnliche Monster wie Zombies und Skelette.",
+          "Nur kleine Hasen bewohnen das Mesa-Biom, während nachts übliche Gegner wie Zombies und Skelette auftauchen.",
+          "Im Mesa-Biom gibt es kleine Hasen, und in der Nacht spawnen normale Monster wie Skelette und Zombies.",
+          "Tagsüber sieht man im Mesa-Biom kleine Hasen, nachts hingegen begegnet man Zombies und Skeletten.",
+          "Das Mesa-Biom beherbergt kleine Hasen und wird nachts von üblichen Monstern wie Zombies und Skeletten heimgesucht."
+        ],
+        "question": "Willst du noch weiteres wissen?"
+      },
+      {
+        "intent": [
+          "ressourcen",
+          "terrakotta",
+          "farben",
+          "gold",
+          "erze",
+          "materialien"
+        ],
+        "answer": [
+          "Hier findest du alle Terrakotta-Farben – perfekt für bunte Bauprojekte. Auch Gold kommt hier häufiger vor als in anderen Biomen.",
+          "Hier gibt es alle Terrakotta-Farben, ideal für farbenfrohe Bauwerke. Außerdem ist Gold hier häufiger als in anderen Biomen zu finden.",
+          "Alle Terrakotta-Töne sind hier verfügbar – perfekt für kreative Bauideen. Gold ist in diesem Biom ebenfalls häufiger anzutreffen.",
+          "Du findest hier eine Vielzahl an Terrakotta-Farben, bestens geeignet für bunte Bauprojekte. Gold ist in diesem Gebiet öfter vorhanden als anderswo.",
+          "Dieses Biom bietet alle Terrakotta-Farben für deine bunten Baupläne. Zudem kommt Gold hier öfter vor als in anderen Regionen.",
+          "Alle Arten von Terrakotta sind hier zu finden – perfekt für farbenreiche Bauwerke. Goldvorkommen sind hier ebenfalls häufiger als sonst."
+        ],
+        "question": "Willst du mehr darüber wissen?"
+      },
+      {
+        "intent": [
+          "strukturen",
+          "minen",
+          "minenschächte",
+          "gebäude",
+          "bauten"
+        ],
+        "answer": [
+          "Alte Minenschächte sind häufig und enthalten Loot, Schienen und Spawner.",
+          "Verlassene Minenschächte gibt es oft, sie enthalten Beute, Schienen und Spawner.",
+          "Oft trifft man auf alte Minenschächte mit Loot, Gleisen und Spawnern.",
+          "Alte Minenschächte sind häufig anzutreffen und bieten Loot, Schienen sowie Spawner.",
+          "In vielen Minenschächten findet man Beute, Schienen und Spawner.",
+          "Minenschächte sind weit verbreitet und enthalten häufig Loot, Schienen und Spawner."
+        ],
+        "question": "Willst du Tipps zum Erkunden?"
+      }
+    ]
+  },
+  {
+    "intent": [
+      "sumpf",
+      "swamp",
+      "sumpfbiom"
+    ],
+    "answer": ["Der Sumpf ist feucht, flach und voller Seerosen – aber nachts nicht ungefährlich.",
+    "Der Sumpf ist nass, flach und übersät mit Seerosen – nachts jedoch gefährlich.",
+    "Feuchte und flache Sumpfgebiete voller Seerosen sind nachts nicht ungefährlich.",
+    "Der flache Sumpf mit seinen Seerosen ist tagsüber friedlich, nachts aber riskant.",
+    "Voller Seerosen und feucht, ist der Sumpf tagsüber harmlos, doch nachts gefährlich.",
+    "Der Sumpf ist eine feuchte, flache Gegend mit vielen Seerosen, die nachts gefährlich werden kann."],
+    "question": ["Willst du mehr über den Sumpf wissen?",
+    "Möchtest du mehr über den Sumpf wissen?",
+    "Soll ich dir noch mehr über den Sumpf sagen?"],
+    "selection": ["Ich kann dir sagen, welche Strukturen, Mobs und Ressourcen du finden kannst.",
+    "Ich gebe dir eine Übersicht über die vorhandenen Strukturen, Kreaturen und Materialien.",
+    "Ich kann dir aufzeigen, welche Bauten, Gegner und Materialien es gibt.",
+    "Ich kann dir mitteilen, welche Strukturen, Mobs und Ressourcen dort vorkommen.",
+    "Ich nenne dir die verfügbaren Strukturen, Lebewesen und Ressourcen.",
+    "Ich kann dir erklären, welche Bauten, Tiere und Materialien du antreffen wirst.",
+    "Ich liste dir auf, welche Strukturen, Mobs und Ressourcen vorhanden sind.",
+    "Ich kann dir sagen, was du an Gebäuden, Gegnern und Ressourcen erwarten kannst."],
+    "list": [
+      {
+        "intent": [
+          "mobs",
+          "slimes",
+          "hexen",
+          "gegner",
+          "kreaturen"
+        ],
+        "answer": [
+          "Nachts spawnen dort Slimes und manchmal Hexen aus Hütten.",
+          "In der Nacht erscheinen dort Slimes und gelegentlich Hexen aus ihren Hütten.",
+          "Nachts tauchen dort Slimes auf und manchmal auch Hexen, die in Hütten wohnen.",
+          "Slimes spawnen nachts dort, und hin und wieder kommen Hexen aus ihren Hütten.",
+          "Nachts gibt es dort Slimes und gelegentlich Hexen, die in Hütten leben.",
+          "In der Dunkelheit spawnen Slimes und manchmal Hexen aus kleinen Hütten."
+        ],
+        "question": "Willst du wissen, wann Slimes spawnen?"
+      },
+      {
+        "intent": [
+          "strukturen",
+          "hexenhütte",
+          "gebäude",
+          "bauten"
+        ],
+        "answer": [
+          "Hexenhütten enthalten Hexen und Kessel – gut für Tränke und Redstone-Zutaten.",
+          "Hexenhütten beherbergen Hexen und Kessel – ideal für Tränke und Redstone-Materialien.",
+          "In Hexenhütten findet man Hexen und Kessel, perfekt für Trankbrauen und Redstone-Zutaten.",
+          "Hexenhütten sind voll mit Hexen und Kesseln – nützlich für Tränke und Redstone-Bauteile.",
+          "Hexenhütten enthalten oft Hexen und Kessel, die für Tränke und Redstone-Zutaten gebraucht werden.",
+          "In den Hexenhütten leben Hexen und stehen Kessel bereit – bestens geeignet für Tränke und Redstone."
+        ],
+        "question": "Willst du wissen, wie du sie sicher besiegst?"
+      },
+      {
+        "intent": [
+          "pflanzen",
+          "seerosen",
+          "blumen",
+          "ressourcen",
+          "materialien"
+        ],
+        "answer": [
+          "Seerosen lassen sich leicht mit Schere oder Boot einsammeln – gut für Deko und Wasserwege.",
+          "Seerosen können einfach mit der Schere oder vom Boot aus gesammelt werden – ideal für Dekoration und Wasserwege.",
+          "Mit Schere oder Boot lassen sich Seerosen problemlos einsammeln, perfekt für Deko und Wasserstraßen.",
+          "Seerosen sind leicht mit der Schere oder vom Boot zu ernten – gut geeignet für dekorative und wasserbasierte Bauprojekte.",
+          "Zum Sammeln von Seerosen reicht eine Schere oder das Boot, ideal für Dekoration und Wasserwege.",
+          "Seerosen lassen sich bequem mit Schere oder Boot aufnehmen – optimal für Dekoration und Wasserstraßen."
+        ],
+        "question": "Willst du mehr über Dekoideen im Sumpf?"
+      }
+    ]
+  },
+
+  {
+  "intent": [
+    "plains",
+    "ebenen",
+    "flachland",
+    "grasland"
+  ],
+  "answer": [
+    "Die Ebenen sind flach, offen und ideal für Dörfer und Landwirtschaft.",
+    "Flache Graslandschaften mit vielen Tieren und reichlich Platz zum Bauen.",
+    "Ein ideales Gebiet für Siedlungen: flach, friedlich und voller Gras.",
+    "Das Ebenenbiom ist offen, freundlich und perfekt für den Basisbau.",
+    "Mit weiten Feldern, Blumen und Tieren eignen sich die Ebenen gut für den Start.",
+    "Die flachen Ebenen bieten Tiere, Blumen und reichlich Platz für deine Projekte."
+  ],
+  "question": [
+    "Möchtest du mehr über das Ebenenbiom erfahren?",
+    "Willst du wissen, was dich in den Ebenen erwartet?",
+    "Soll ich dir mehr über das Biom der Ebenen erzählen?"
+  ],
+  "selection": [
+    "Ich kann dir sagen, welche Strukturen, Mobs und Ressourcen du finden kannst.",
+    "Ich gebe dir eine Übersicht über die vorhandenen Strukturen, Kreaturen und Materialien.",
+    "Ich kann dir aufzeigen, welche Bauten, Gegner und Materialien es gibt.",
+    "Ich kann dir mitteilen, welche Strukturen, Mobs und Ressourcen dort vorkommen.",
+    "Ich nenne dir die verfügbaren Strukturen, Lebewesen und Ressourcen.",
+    "Ich kann dir erklären, welche Bauten, Tiere und Materialien du antreffen wirst.",
+    "Ich liste dir auf, welche Strukturen, Mobs und Ressourcen vorhanden sind.",
+    "Ich kann dir sagen, was du an Gebäuden, Gegnern und Ressourcen erwarten kannst."
+  ],
+  "list": [
+    {
+      "intent": [
+        "mobs",
+        "tiere",
+        "kühe",
+        "schafe",
+        "gegner"
+      ],
+      "answer": [
+        "In den Ebenen findest du Kühe, Schafe, Pferde und manchmal Zombies bei Nacht.",
+        "Tagsüber gibt es dort viele Tiere wie Kühe und Schafe – nachts spawnen Gegner.",
+        "Die Ebenen sind reich an Nutztieren, nachts können aber auch Zombies auftauchen.",
+        "Schafe, Kühe und Pferde prägen das Biom – nachts musst du dich vor Feinden schützen.",
+        "Viele friedliche Tiere leben dort, aber nachts spawnen Monster wie Zombies.",
+        "Tiere wie Kühe, Schafe und Pferde findest du tagsüber – nachts lauern Gefahren."
+      ],
+      "question": "Willst du mehr über friedliche oder feindliche Mobs wissen?"
+    },
+    {
+      "intent": [
+        "strukturen",
+        "dorf",
+        "häuser",
+        "gebäude",
+        "bauten"
+      ],
+      "answer": [
+        "In den Ebenen generieren oft Dörfer mit Bauern, Feldern und Ressourcen.",
+        "Du kannst dort Dörfer mit Händlern, Feldern und einfachen Häusern finden.",
+        "Dörfer erscheinen häufig – mit Werkbänken, Betten und Loot in den Truhen.",
+        "In diesem Biom findest du regelmäßig Dörfer mit Bewohnern und kleinen Strukturen.",
+        "Plains-Dörfer bieten gute Startbedingungen: Nahrung, Händler und Schutz.",
+        "Dörfer sind in den Ebenen häufig – ideal zum Handeln und als Unterschlupf."
+      ],
+      "question": "Willst du wissen, wie du ein Dorf effizient nutzt?"
+    },
+    {
+      "intent": [
+        "pflanzen",
+        "blumen",
+        "gras",
+        "ressourcen",
+        "materialien"
+      ],
+      "answer": [
+        "In den Ebenen wachsen viele Blumen, ideal für Farbstoffe und Bienen.",
+        "Du findest dort Gras, Blumen und manchmal Bienenstöcke an Bäumen.",
+        "Blumen für Farbstoffe, hohes Gras für Samen – Ressourcen sind reichlich vorhanden.",
+        "Die Ebenen liefern einfache Ressourcen wie Samen, Blumen und Gras.",
+        "Ideal für Farbstoffe: viele bunte Blumen wachsen in den Ebenen.",
+        "Gras, Blumen und gelegentliche Bienenstöcke machen das Biom nützlich für Farming."
+      ],
+      "question": "Willst du Tipps für den Ressourcenanbau im Plains-Biom?"
+    }
+  ]
+},
+
+{
+  "intent": [
+    "ozean",
+    "ocean",
+    "meer",
+    "wasserbiom"
+  ],
+  "answer": [
+    "Der Ozean ist tief, weit und voller Leben – aber nicht ohne Gefahren.",
+    "Ein riesiges Wasserbiom mit Schätzen, Ruinen und gefährlichen Kreaturen.",
+    "Tiefer Ozean, endlose Wasserflächen und geheimnisvolle Strukturen warten.",
+    "Im Ozean findest du eine Vielfalt an Meeresleben und versteckten Orten.",
+    "Ein weitläufiges Wasserbiom mit Ruinen, Monstern und Schätzen unter der Oberfläche.",
+    "Der Ozean ist voller Geheimnisse – perfekt zum Tauchen, aber auch riskant."
+  ],
+  "question": [
+    "Willst du mehr über das Ozeanbiom erfahren?",
+    "Möchtest du wissen, was dich im Ozean erwartet?",
+    "Interessiert dich, was im Ozean alles verborgen liegt?"
+  ],
+  "selection": [
+    "Ich kann dir sagen, welche Strukturen, Mobs und Ressourcen du finden kannst.",
+    "Ich gebe dir eine Übersicht über die vorhandenen Strukturen, Kreaturen und Materialien.",
+    "Ich kann dir aufzeigen, welche Bauten, Gegner und Materialien es gibt.",
+    "Ich kann dir mitteilen, welche Strukturen, Mobs und Ressourcen dort vorkommen.",
+    "Ich nenne dir die verfügbaren Strukturen, Lebewesen und Ressourcen.",
+    "Ich kann dir erklären, welche Bauten, Tiere und Materialien du antreffen wirst.",
+    "Ich liste dir auf, welche Strukturen, Mobs und Ressourcen vorhanden sind.",
+    "Ich kann dir sagen, was du an Gebäuden, Gegnern und Ressourcen erwarten kannst."
+  ],
+  "list": [
+    {
+      "intent": [
+        "mobs",
+        "drowned",
+        "ertrunkene",
+        "fische",
+        "meereskreaturen"
+      ],
+      "answer": [
+        "Im Ozean leben Fische, Delfine und nachts auch Ertrunkene mit Dreizack.",
+        "Neben Fischen und Delfinen triffst du auf gefährliche Ertrunkene bei Nacht.",
+        "Ertrunkene erscheinen vor allem nachts – manche tragen Dreizacke oder Muscheln.",
+        "Fische und Delfine sind friedlich, Ertrunkene können dich aber stark verletzen.",
+        "Im Ozean schwimmen viele Kreaturen – manche freundlich, andere sehr gefährlich.",
+        "Mitten im Meer triffst du auf Ertrunkene, Delfine und viele Fischarten."
+      ],
+      "question": "Willst du wissen, wie man sicher vor Ertrunkenen bleibt?"
+    },
+    {
+      "intent": [
+        "strukturen",
+        "wrack",
+        "ruine",
+        "denkmal",
+        "tempel"
+      ],
+      "answer": [
+        "Ozeane enthalten Schiffswracks, Unterwasser-Ruinen und Meeresdenkmäler voller Loot.",
+        "Du findest dort Schiffswracks mit Truhen und Ozeantempel mit Wächtern.",
+        "Ruinen, Wracks und Denkmäler bieten Schätze – aber auch starke Gegner.",
+        "Im Ozean gibt es verlassene Strukturen mit Loot – gut versteckt unter Wasser.",
+        "Meeresdenkmäler sind gefährlich, aber enthalten seltene Blöcke wie Prismarin.",
+        "In Wracks und Ruinen findest du Karten, Schätze und Materialien."
+      ],
+      "question": "Willst du Tipps zum Plündern von Schiffswracks und Tempeln?"
+    },
+    {
+      "intent": [
+        "pflanzen",
+        "seegras",
+        "korallen",
+        "ressourcen",
+        "materialien"
+      ],
+      "answer": [
+        "Im Ozean wachsen Seegras, Algen und bunte Korallen – nützlich und dekorativ.",
+        "Seegras lässt sich mit einer Schere ernten – Futter für Schildkröten.",
+        "Korallenriffe bieten farbenfrohe Blöcke, ideal für Dekorationen.",
+        "Du kannst im Ozean Blöcke wie Prismarin, Korallen und Algen sammeln.",
+        "Seegras und Algen wachsen reichlich – gut für Farmen und als Deko.",
+        "Korallenblöcke bringen Farbe ins Spiel – du brauchst dafür eine Spitzhacke mit Silk Touch."
+      ],
+      "question": "Möchtest du wissen, wie du Korallen unbeschädigt abbauen kannst?"
+    }
+  ]
+},
+
+{
+  "intent": [
+    "nether",
+    "unterwelt",
+    "hölle",
+    "netherbiom"
+  ],
+  "answer": [
+    "Der Nether ist eine feurige Dimension voller Lava, gefährlicher Kreaturen und wertvoller Ressourcen.",
+    "Heiß, düster und tödlich – der Nether ist nichts für schwache Nerven.",
+    "Die Unterwelt ist ein Ort voller Lava, Festungen und ungewöhnlicher Materialien.",
+    "Im Nether warten gefährliche Gegner, einzigartige Blöcke und seltene Strukturen.",
+    "Der Nether ist ein feuriges Reich mit vielen Biomen, seltsamen Kreaturen und viel Gefahr.",
+    "Eine brennende Welt, in der Mutige mit Reichtümern belohnt werden – und Unachtsame schnell sterben."
+  ],
+  "question": [
+    "Willst du wissen, was dich im Nether erwartet?",
+    "Interessiert dich, welche Gefahren und Schätze es im Nether gibt?",
+    "Möchtest du mehr über die Unterwelt erfahren?"
+  ],
+  "selection": [
+    "Ich kann dir sagen, welche Strukturen, Mobs und Ressourcen du finden kannst.",
+    "Ich gebe dir eine Übersicht über die vorhandenen Strukturen, Kreaturen und Materialien.",
+    "Ich kann dir aufzeigen, welche Bauten, Gegner und Materialien es gibt.",
+    "Ich kann dir mitteilen, welche Strukturen, Mobs und Ressourcen dort vorkommen.",
+    "Ich nenne dir die verfügbaren Strukturen, Lebewesen und Ressourcen.",
+    "Ich kann dir erklären, welche Bauten, Tiere und Materialien du antreffen wirst.",
+    "Ich liste dir auf, welche Strukturen, Mobs und Ressourcen vorhanden sind.",
+    "Ich kann dir sagen, was du an Gebäuden, Gegnern und Ressourcen erwarten kannst."
+  ],
+  "list": [
+    {
+      "intent": [
+        "mobs",
+        "gegner",
+        "kreaturen",
+        "monster",
+        "feinde"
+      ],
+      "answer": [
+        "Im Nether lauern Ghasts, Piglins, Witherskelette, Magmawürfel und viele weitere Gefahren.",
+        "Gefährliche Mobs wie Ghasts, Piglins und Hoglins machen den Nether besonders tödlich.",
+        "Piglins greifen dich ohne Goldrüstung an – Witherskelette spawnen in Festungen.",
+        "Magmawürfel, Ghasts und Hoglins sorgen für ständige Gefahr in der Unterwelt.",
+        "Ohne Vorsicht und gute Ausrüstung bist du im Nether leichte Beute für seine Kreaturen.",
+        "Im Nether solltest du ständig wachsam sein – viele Mobs sind aggressiv und stark."
+      ],
+      "question": "Willst du wissen, wie du dich gegen Piglins und Ghasts schützt?"
+    },
+    {
+      "intent": [
+        "strukturen",
+        "festung",
+        "bastion",
+        "bauwerk",
+        "gebäude"
+      ],
+      "answer": [
+        "Im Nether findest du Netherfestungen und Bastionen – beide voll mit Loot und Gefahren.",
+        "Bastionen beherbergen Piglins und große Schätze – aber Vorsicht vor dem Plündern.",
+        "Netherfestungen sind notwendig, um Witherskelette und Blaze-Rods zu farmen.",
+        "Die Strukturen im Nether enthalten wertvolle Items, aber sind schwer zu durchqueren.",
+        "Festungen und Bastionen sind Hauptziele im Nether – sie bieten seltene Ressourcen.",
+        "Diese Strukturen bieten seltene Beute, aber auch viele aggressive Gegner."
+      ],
+      "question": "Willst du wissen, wie man eine Bastion sicher plündert?"
+    },
+    {
+      "intent": [
+        "ressourcen",
+        "materialien",
+        "blöcke",
+        "erz",
+        "pflanzen"
+      ],
+      "answer": [
+        "Im Nether findest du Quarz, Nethergold, Schwarzes Stein, Netherwarzen und Glühstein.",
+        "Viele Blöcke wie Netherrack, Basalt oder Leuchtstein kommen nur hier vor.",
+        "Netherquarz ist ideal für Redstone – Netherwarzen für Tränke.",
+        "Altes Geröll kann zu Netherite verarbeitet werden – das stärkste Material im Spiel.",
+        "Im Nether findest du einzigartige Ressourcen wie Seelensand, Magmablöcke und Pilze.",
+        "Leuchtstein und Schwarzer Stein eignen sich gut für magische oder düstere Bauten."
+      ],
+      "question": "Möchtest du wissen, wie du an Netherite kommst?"
+    }
+  ]
+},
+
+  {
+      "intent": ["biome", "biom", "bioms"],
+      "answer": ["Es gibt in der neusten Minecraft Version über 60 verschiedene Biome. Der Einfachkeit halber kenne ich zurzeit nur 8. Wüste, Dschungel, Sumpf, Ozean, Badlands, Plains, Schneebiom und den Nether.",
+      "In der neuesten Minecraft-Version gibt es mehr als 60 Biome – ich kenne im Moment aber nur 8: Wüste, Dschungel, Sumpf, Ozean, Badlands, Ebenen, Schneebiom und den Nether.",
+      "Minecraft hat inzwischen über 60 verschiedene Biome, aber ich kenne aktuell nur acht: Wüste, Dschungel, Sumpf, Ozean, Badlands, Plains, Schneebiom und den Nether.",
+      "Obwohl es in der neuesten Minecraft-Version über 60 Biome gibt, beschränke ich mich derzeit auf acht: Wüste, Dschungel, Sumpf, Ozean, Badlands, Ebenen, Schneebiom und Nether.",
+      "Es existieren über 60 Biome in der aktuellen Minecraft-Version, aber ich beschäftige mich aktuell nur mit acht: Wüste, Dschungel, Sumpf, Ozean, Badlands, Plains, Schneebiom und den Nether.",
+      "Die neueste Minecraft-Version bietet mehr als 60 Biome. Ich konzentriere mich momentan auf 8 davon: Wüste, Dschungel, Sumpf, Ozean, Badlands, Ebenen, Schneebiom und den Nether."]
+    }
+]
+}

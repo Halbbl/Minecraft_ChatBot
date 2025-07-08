@@ -1,0 +1,36 @@
+Dieser ChatBot arbeitet mit json Dictionaries.
+
+Die json Dateien und wofür sie da sind:
+
+defaultAnswer.json: Antworten die der Bot gibt wenn er etwas nicht verstanden hat.
+hello.json: Begrüßungsnachrichten
+minecraft_biomes.json: Die Liste, in welcher der Bot nach Keywörtern sucht und passende Antworten gibt.
+needHelp.json: Rückfragen, die der Bot stellt.
+no.json: Synonyme für "nein".
+understood.json: Synonyme für "ok".
+yes.json: Synonyme für "ja".
+chatlog.json: Speichert die User Daten und deren Chat History.
+
+
+
+Die Logik des Bots befindet sich in bot.js
+Die Logik zum joinen der User und Interaktion auf der Website befindet sich in botti.js
+Der Server befindet sich in staticExpress.js
+HTML befindet sich in index.html 
+CSS befindet sich in style.css
+
+
+
+Der Bot läuft zudem öffentlich zugänglich unter folgendem Link:
+https://chathtmlspotter2-0.onrender.com
+(muss allerdings vor Verwendung im Backend gestartet werden)
+
+Der Bot wurde zur lokalen Benutzung abgeändert.
+
+
+Gruppe: PESN
+
+Monika Salmansberger
+Thanushya Panchalingam
+Heba Elbastawisy
+Franziska Nachtmann
