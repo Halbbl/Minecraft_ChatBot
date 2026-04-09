@@ -18,19 +18,3 @@ Die Logik zum joinen der User und Interaktion auf der Website befindet sich in b
 Der Server befindet sich in staticExpress.js
 HTML befindet sich in index.html 
 CSS befindet sich in style.css
-
-
-
-Der Bot läuft zudem öffentlich zugänglich unter folgendem Link:
-https://chathtmlspotter2-0.onrender.com
-(muss allerdings vor Verwendung im Backend gestartet werden)
-
-Der Bot wurde zur lokalen Benutzung abgeändert.
-
-
-Gruppe: PESN
-
-Monika Salmansberger
-Thanushya Panchalingam
-Heba Elbastawisy
-Franziska Nachtmann
