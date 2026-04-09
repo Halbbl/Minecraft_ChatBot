@@ -1,3 +1,84 @@
 {
-  "users": []
+  "users": [
+    {
+      "username": "Spieler483",
+      "currentIntent": [],
+      "currentBiomeId": 6,
+      "currentQuestion": "",
+      "currentSelection": "Ich kann dir sagen, welche Strukturen, Mobs und Ressourcen du finden kannst.",
+      "fallBackCounter": 0,
+      "chathistory": [
+        {
+          "sender": "Spieler483",
+          "message": "plains mobs",
+          "timestamp": "2026-04-09T12:41:14.599Z"
+        },
+        {
+          "sender": "Steve",
+          "message": "Die Ebenen sind reich an Nutztieren, nachts können aber auch Zombies auftauchen.",
+          "timestamp": "2026-04-09T12:41:14.609Z"
+        }
+      ]
+    },
+    {
+      "username": "Spieler50",
+      "currentIntent": [],
+      "currentBiomeId": 4,
+      "currentQuestion": "",
+      "currentSelection": "Ich kann dir aufzeigen, welche Bauten, Gegner und Materialien es gibt.",
+      "fallBackCounter": 0,
+      "chathistory": [
+        {
+          "sender": "Spieler50",
+          "message": "mesa tiere",
+          "timestamp": "2026-04-09T12:48:51.916Z"
+        },
+        {
+          "sender": "Steve",
+          "message": "Terrakotta und steile Schluchten prägen das farbenfrohe Mesa-Biom.",
+          "timestamp": "2026-04-09T12:48:51.922Z"
+        },
+        {
+          "sender": "Spieler50",
+          "message": "mobs",
+          "timestamp": "2026-04-09T12:48:57.928Z"
+        },
+        {
+          "sender": "Steve",
+          "message": "Im Mesa Biom findest du nur kleine Hasen und Nachts normale Monster wie Zombies und Skelette.",
+          "timestamp": "2026-04-09T12:48:57.933Z"
+        }
+      ]
+    },
+    {
+      "username": "Spieler993",
+      "currentIntent": [],
+      "currentBiomeId": 6,
+      "currentQuestion": "",
+      "currentSelection": "Ich liste dir auf, welche Strukturen, Mobs und Ressourcen vorhanden sind.",
+      "fallBackCounter": 0,
+      "chathistory": [
+        {
+          "sender": "Spieler993",
+          "message": "plains struktur",
+          "timestamp": "2026-04-09T13:03:54.869Z"
+        },
+        {
+          "sender": "Steve",
+          "message": "Die flachen Ebenen bieten Tiere, Blumen und reichlich Platz für deine Projekte.",
+          "timestamp": "2026-04-09T13:03:54.877Z"
+        },
+        {
+          "sender": "Spieler993",
+          "message": "strukturen",
+          "timestamp": "2026-04-09T13:04:02.579Z"
+        },
+        {
+          "sender": "Steve",
+          "message": "Du kannst dort Dörfer mit Händlern, Feldern und einfachen Häusern finden.",
+          "timestamp": "2026-04-09T13:04:02.583Z"
+        }
+      ]
+    }
+  ]
 }

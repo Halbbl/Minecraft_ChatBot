@@ -17,12 +17,33 @@
     "Die Plains sind breite, flache Gebiete, die von Gras und Bäumen bewachsen sind. Sie sind bekannt für ihre friedliche Atmosphäre und hohe Anzahl an Tieren wie Kühe und Schafe."
 ]; //note to me: add more bioms
 
+  const mobs = [
+    "../images/camel.jpg",
+    "../images/platzhalter.jpg",
+    "../images/cow.jpg",
+  ];
+
+  const structures = [
+    "../images/desert_temple.jpg",
+    "../images/mineshaft.jpg",
+    "../images/village.jpg",
+  ];
+
+  const plants = [
+    "../images/cactus.png",
+    "../images/dead_bush.png",
+    "../images/oak_tree.png",
+  ];
+
 let index = 0;
 
 function showImage() {
   document.getElementById("slide").src = images[index];
   document.querySelector(".slider-text h2").innerText = headers[index];
   document.querySelector(".slider-text p").innerText = texts[index];
+  document.querySelector(".intents-mobs img").src = mobs[index];
+  document.querySelector(".intents-structures img").src = structures[index];
+  document.querySelector(".intents-plants img").src = plants[index];
 }
 
   function next() {

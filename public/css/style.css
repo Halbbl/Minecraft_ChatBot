@@ -210,9 +210,9 @@ ul li.logo {
   right: 0;
 }
 
-.bottom-bg {
+.second-bg {
   width: 100%;
-  height: 800px;
+  height: 500px;
   background: #323232;
   position: absolute;
   margin: 0;
@@ -226,6 +226,16 @@ ul li.logo {
   height: 250px;
   margin-left: 100px;
   top: 1400px;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  gap: 40px;
+}
+
+.intents-text {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
 }
 
 .intents h1 {
@@ -234,4 +244,61 @@ ul li.logo {
   font-family: 'Public Pixel', sans-serif;
   color: #db8d8b;
   line-height: 1.5;
+}
+
+.intents p {
+  font-size: 18px;
+  font-family: 'Noto Sans', sans-serif;
+  color: white;
+  line-height: 1.5;
+  width: 300px;
+}
+
+.intents-mobs img {
+  height: 300px;
+  width: 300px;
+  margin-top: 20px;
+}
+
+.intents-mobs p {
+  font-size: 18px;
+  font-family: 'Public Pixel', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.intents-structures img {
+  height: 300px;
+  width: 300px;
+  margin-top: 20px;
+}
+
+.intents-structures p {
+  font-size: 18px;
+  font-family: 'Public Pixel', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.intents-plants img {
+  height: 300px;
+  width: 300px;
+  margin-top: 20px;
+}
+
+.intents-plants p {
+  font-size: 18px;
+  font-family: 'Public Pixel', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.third-bg {
+  width: 100%;
+  height: 500px;
+  background: #262523;
+  position: absolute;
+  margin: 0;
+  z-index: -1;
+  top: 2000px;
 }
