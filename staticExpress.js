@@ -104,7 +104,7 @@ wss.on('request', function (request) {
         break
       case 'msg':
         // Erstelle eine Nachricht in JSON mit Typ, Sender und Inhalt
-        msg = '{"type": "msg", "name":"' + name + '", "msg":"' + data.msg + '","sender":"'+data.sender+'"}'
+        msg = '{"type": "msg", "name":"' + name + '", "msg":"' + data.msg + '","sender":"'+data.sender+ '","biomeId":"' + data.biomeId + '"}'
         utype = 'msg'
         uname = name
         umsg = data.msg

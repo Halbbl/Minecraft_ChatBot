@@ -3,27 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minecraft Chat</title>
+  <title>Home</title>
   <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <div class="chat-container">
-    <div class="layout">
-      <div class="chat-log" id="msgs">
-      </div>
-      <div class="user-list" id="users">
-        
-      </div>
-    </div>
+  <div class="top-img"></div>
+  <div class="top-bg"></div>
+  <div class="bottom-bg"></div>
+  <header>
+    <ul>
+      <li class="logo">
+      <a href="https://www.minecraft.net/de-de#main-content">
+        <img src="./images/Minecraft_logo_PNG9.png" alt="Logo" height="40">
+      </a>
+    </li>
+  <li><a href="index.html">HOME</a></li>
+  <li><a href="chatbot.html">CHATBOT</a></li>
+</ul>
+  </header>
 
-    <div class="chat-input">
-      <input type="text" id="msg" placeholder="Nachricht eingeben...">
-      <button id="sendBtn">Senden</button>
+<div class="content">
+  <div class="tiny-box1"></div>
+  <div class="tiny-box2"></div>
+  <div class="tiny-box3"></div>
+    <div class="box">
+      <h1>Minecraft ChatBot</h1>
+      <p>Dieser ChatBot wurde im Rahmen des Kurses "Internettechnologien" im zweiten Semester des Studiengangs "Software-Design" entwickelt.
     </div>
   </div>
 
-  <script src="./js/jquery.js"></script>
-  <script src="./js/botti.js"></script>
+  <div class="divider">
+    <h1>Verfügbare Biome</h1>
+  </div>
+
+  <div class="slider-container">
+  
+    <div class="slider-text">
+      <h2>Wüste</h2>
+      <p>Die Wüste besteht an der Oberfläche hauptsächlich aus Sand, unter dem sich Sandstein befindet. Es wachsen nur Kakteen und tote Büsche. Tiere gibt es nur wenige. Darunter fallen Hasen und Kamele.</p>
+    </div>
+
+    <div class="slider">
+    <img id="slide" src="./images/desert.png" alt="Slider">
+
+    <button onclick="prev()">⟨</button>
+    <button onclick="next()">⟩</button>
+    </div>
+  </div>
+
+  <div class="intents">
+    <h1>Mögliche Intents</h1>
+  </div>
+
+<script src="./js/slider.js"></script>
 </body>
 </html>

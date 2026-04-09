@@ -61,8 +61,10 @@
   {
     "intent": [
       "wüste",
-      "wüstenbiom"
+      "wüstenbiom",
+      "desert"
     ],
+    "id": 1,
     "answer": ["In der Wüste findest du Sand, Kakteen und kaum Wasser. Tagsüber ruhig, nachts gefährlich.",
     "Die Wüste bietet Sand und Kakteen, aber nur wenig Wasser – tagsüber friedlich, nachts voller Gefahren.",
     "In der Wüste gibt es viel Sand und Kakteen, doch Wasser ist selten. Nachts wird es gefährlich.",
@@ -152,6 +154,7 @@
       "jungle",
       "dschungelbiom"
     ],
+    "id": 2,
     "answer": ["Der Dschungel ist dicht bewachsen, voller Tiere und bietet viele Möglichkeiten.",
     "Der Dschungel ist üppig bewachsen, lebendig und steckt voller Möglichkeiten.",
     "Ein dichter Dschungel mit vielen Tieren und reichlich Potenzial zum Erkunden und Bauen.",
@@ -244,6 +247,7 @@
       "schneebiom",
       "eisbiom"
     ],
+    "id": 3,
     "answer": ["Im Schneebiom findest du Eis, Schnee und gefrorene Seen – aber es ist gefährlich.",
     "Das Schneebiom ist voller Eis, Schnee und zugefrorener Seen – doch es birgt Gefahren.",
     "In Schneebiomen findest du viel Schnee, Eis und gefrorene Gewässer – sei vorsichtig!",
@@ -335,6 +339,7 @@
       "terrakotta",
       "mesabiom"
     ],
+    "id": 4,
     "answer": ["Die Mesa ist ein farbenfrohes Biom voller Terrakotta und Schluchten.",
     "Die Mesa ist ein buntes Biom mit vielen Terrakotta-Schichten und tiefen Schluchten.",
     "In der Mesa findet man farbenfrohe Terrakotta und beeindruckende Schluchten.",
@@ -414,6 +419,7 @@
       "swamp",
       "sumpfbiom"
     ],
+    "id": 5,
     "answer": ["Der Sumpf ist feucht, flach und voller Seerosen – aber nachts nicht ungefährlich.",
     "Der Sumpf ist nass, flach und übersät mit Seerosen – nachts jedoch gefährlich.",
     "Feuchte und flache Sumpfgebiete voller Seerosen sind nachts nicht ungefährlich.",
@@ -495,6 +501,7 @@
     "flachland",
     "grasland"
   ],
+  "id": 6,
   "answer": [
     "Die Ebenen sind flach, offen und ideal für Dörfer und Landwirtschaft.",
     "Flache Graslandschaften mit vielen Tieren und reichlich Platz zum Bauen.",
@@ -583,6 +590,7 @@
     "meer",
     "wasserbiom"
   ],
+  "id": 7,
   "answer": [
     "Der Ozean ist tief, weit und voller Leben – aber nicht ohne Gefahren.",
     "Ein riesiges Wasserbiom mit Schätzen, Ruinen und gefährlichen Kreaturen.",
@@ -671,6 +679,7 @@
     "hölle",
     "netherbiom"
   ],
+  "id": 8,
   "answer": [
     "Der Nether ist eine feurige Dimension voller Lava, gefährlicher Kreaturen und wertvoller Ressourcen.",
     "Heiß, düster und tödlich – der Nether ist nichts für schwache Nerven.",

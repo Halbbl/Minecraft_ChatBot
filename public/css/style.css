@@ -1,123 +1,237 @@
 body {
-  background-image: url("/images/minecraft-cherry-blossom-biome.jpg");
+  /*background-image: url("/images/minecraft-cherry-blossom-biome.jpg");*/
+  background-color: #262523;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   font-family: 'Minecraft', monospace;
   color: white;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
-.chat-container {
-  width: 900px;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 15px;
-  border: 2px solid #3c3c3c;
-  box-shadow: 0 0 10px #000;
+.top-img {
+  width: 100%;
+  height: 750px;
+  background-image: url("/images/desert.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.chat-log, .user-list {
-  background-color: #2b2b2b;
-  border: 1px solid #444;
-  padding: 10px;
-  height: 350px;
-  overflow-y: auto;
+.top-bg {
+  width: 100%;
+  height: 600px;
+  background: #262523;
+  position: absolute;
+  margin: 0;
+  z-index: -1;
+  top: 750px;
+  border-top: 4px solid #494948;
 }
 
-.chat-log {
-  margin-bottom: 10px;
+ul {
+  list-style-type: none;
+  margin-top: 0;
+  padding: 0;
+  background-color: rgba(38, 37, 35, 0.7);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  border-bottom: 2px solid #100;
+  box-shadow: 0 4px 0 rgb(0, 0, 0, 0.3);
+  z-index: 1000;
 }
 
-.chat-message {
-  margin: 3px 0;
-  color: #ccc;
+ul li {
+  float: left;
 }
 
-.chat-message.bot {
-  color: #ffffff;
-}
-
-.chat-message.you {
-  color: #e6ace1;
-}
-
-.chat-input {
-  display: flex;
-  margin-top: 10px;
-}
-
-.chat-input input {
-  flex: 1;
-  padding: 8px;
-  background-color: #1e1e1e;
-  border: none;
+ul li a {
+  display: block;
   color: white;
-  font-family: 'Minecraft', monospace;
-  font-size: 15px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 8px;
+  margin-right: 40px;
+  text-align: center;
+  padding: 25px 16px;
+  text-decoration: none;
+  height: 20px;
+  transform: translateX(100px)
 }
 
-.chat-input button {
-  padding: 8px 12px;
-  background-color: #e181c7;
+ul li a:hover {
+  color: #52a535;
+}
+
+ul li.logo {
+  float: left;
+  transform: translate(-60px, -25px);
+}
+
+.logo img {
+  height: auto;
+  width: 230px;
+}
+
+.content {
+  width: fit-content;
+  margin-top: 100px;
+}
+
+.tiny-box1 {
+  position: absolute;
+  width: 50px;
+  height: 54px;
+  background: #262523;
+  margin-left: 700px;
+  top: 450px;
+  z-index: 1;
+  border-top: 4px solid #494948;
+}
+
+.tiny-box2 {
+  position: absolute;
+  width: 50px;
+  height: 54px;
+  background: #262523;
+  margin-left: 800px;
+  top: 450px;
+  z-index: 1;
+  border-top: 4px solid #494948;
+}
+
+.tiny-box3 {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #262523;
+  margin-left: 850px;
+  top: 400px;
+  z-index: 1;
+  border-top: 4px solid #494948;
+}
+
+.box {
+  position: absolute;
+  width: 600px;
+  height: 250px;
+  background: #262523;
+  margin-left: 300px;
+  top: 500px;
+  border-top: 4px solid #494948;
+}
+
+.box h1 {
+  font-size: 18px;
+  font-family: 'Public Pixel', sans-serif;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  color: white;
+}
+
+.box p {
+  font-size: 18px;
+  font-family: 'Noto Sans', sans-serif;
+  padding: 20px;
+  margin-left: 30px;
+  margin-right: 50px;
+  color: rgb(137, 137, 137);
+  text-align: left;
+  line-height: 1.5;
+}
+
+.divider {
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.divider h1 {
+  font-size: 40px;
+  font-family: 'Public Pixel', sans-serif;
+  color: white;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.slider-text {
+  width: 300px;
+}
+
+.slider-text h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #52a535;
+}
+
+.slider-text p {
+  font-size: 18px;
+  font-family: 'Noto Sans', sans-serif;
+  color: white;
+}
+
+.slider {
+  position: relative;
+  width: 600px;
+  z-index: 2;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+}
+
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #262523;
+  color: white;
   border: none;
-  color: black;
-  font-family: 'Minecraft', monospace;
+  padding: 10px;
   cursor: pointer;
 }
 
-.chat-input button:hover {
-  background-color: #cc44be;
+.slider button:first-of-type {
+  left: 0;
 }
 
-.layout {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 10px;
+.slider button:last-of-type {
+  right: 0;
 }
 
-.user-list {
-  font-size: 16px;
+.bottom-bg {
+  width: 100%;
+  height: 800px;
+  background: #323232;
+  position: absolute;
+  margin: 0;
+  z-index: -1;
+  top: 1350px;
 }
 
-
-
-
-/*Anpassung für kleiner Bildschirme wie Smartphones*/
-/*Verwenden dafür Media Query*/
-@media (max-width: 768px){
-  .layout { /*von CSS-Klasse*/
-    display: flex; /*dynamisch*/
-    flex-direction:column; /*untereinander anzeigen*/
-  }
-
-  .chat-log,
-  .user-list {
-    height: 200px; /*oder auto einfügen für automatische Anpassung abhängig vom Inhalt*/
-    max-height: 250px; /*maximal Höhe*/
-    margin-bottom: 10px; /*Abstand nach unten im Inhalt*/
-  }
-
-  .chat-input {
-    flex-direction:column;
-    display: flex;
-  }
-
-  .chat-input input {
-    width: 100%;
-    margin-bottom: 8px;
-  }
-
-  .chat-container {
-    width:95%;
-    padding:10px;
-  }
-
-  .chat-input button {
-    width: 100%;
-  }
+.intents {
+  position: absolute;
+  width: 600px;
+  height: 250px;
+  margin-left: 100px;
+  top: 1400px;
 }
 
+.intents h1 {
+  font-size: 40px;
+  width: 300px;
+  font-family: 'Public Pixel', sans-serif;
+  color: #db8d8b;
+  line-height: 1.5;
+}

@@ -7,14 +7,17 @@ var WebSocketClient = require('websocket').client
 
 
 /**
- * bot ist ein einfacher Websocket Chat Client
+ * a simple bot class. It connects to the server and reacts to messages.
+ * The bot is build to react to messages with a simple keyword matching. 
+ * The keywords and answers are stored in the json file minecraft_biomes.json.
+ * You can change the json file and add your own keywords and answers. 
+ * The bot reacts to the first keyword it finds, so be careful with the order of the keywords.
  */
 
 class bot {
 
   /**
-   * Konstruktor baut den client auf. Er erstellt einen Websocket und verbindet sich zum Server
-   * Bitte beachten Sie, dass die Server IP hardcodiert ist. Sie müssen sie umsetzten
+   * constructor. Initializes the bot, loads the json files and sets up the websocket connection.
    */
   constructor () {
     
@@ -31,20 +34,20 @@ class bot {
     
 
    
-    //Die Websocketverbindung
+    //websocket connection
     this.client = new WebSocketClient()
     
-    //Wenn der Websocket verbunden ist, dann setzten wir ihn auf true
+    //true when the bot is connected to the server, false otherwise
     this.connected = false
 
     
-    //Wenn die Verbindung nicht zustande kommt, dann läuft der Aufruf hier hinein
+    //if the connection fails, we log the error
     this.client.on('connectFailed', function (error) {
       console.log('Connect Error: ' + error.toString())
     })
 
      
-      //Wenn der Client sich mit dem Server verbindet sind wir hier 
+      //client connected to server 
       this.client.on('connect', function (connection) {
       this.con = connection
       console.log('WebSocket Client Connected')
@@ -52,13 +55,13 @@ class bot {
       console.log('Connection Error: ' + error.toString())
       })
 
-      //Es kann immer sein, dass sich der Client disconnected (typischer Weise, wenn der Server nicht mehr da ist)
+      //if the connection is closed, we log it
       connection.on('close', function () {
       console.log('echo-protocol Connection Closed')
       })
 
       
-      //Hier ist der Kern, wenn immmer eine Nachricht empfangen wird, kommt hier die Nachricht an. 
+      //if a message is received, we log it and react to it 
       connection.on('message', function (message) {
         if (message.type === 'utf8') {
           var data = JSON.parse(message.utf8Data)
@@ -66,8 +69,7 @@ class bot {
         }
       })
        
-      //Hier senden wir unsere Kennung damit der Server uns erkennt.
-      //Wir formatieren die Kennung als JSON
+      //send a message to the server to join the chat with the name "Steve"
       function joinGesp () {
         if (connection.connected) {
           connection.sendUTF('{"type": "join", "name":"Steve"}')
@@ -78,17 +80,15 @@ class bot {
     })
   }
 
-   //Methode um sich mit dem Server zu verbinden. Achtung wir nutzen localhost
+   //connects the bot to the server
   connect () {
     this.client.connect('ws://127.0.0.1:10000/', 'chat')
     this.connected = true
   }
 
   /** 
-   * Hier muss ihre Verarbeitungslogik integriert werden.
-   * Diese Funktion wird automatisch im Server aufgerufen, wenn etwas ankommt, das wir 
-   * nicht geschrieben haben
-   * @param nachricht auf die der bot reagieren soll
+   * reacts to a message. The bot checks if the message contains a keyword and reacts with the corresponding answer.
+   * @param msg message the bot reacts to
   */
   post (msg) {
     var get=JSON.parse(msg);
@@ -96,23 +96,25 @@ class bot {
     var name = 'Steve'
     this.botName = name
     var inhalt = ''
-    this.sender=get.name;
+    this.sender=get.name
     var defaultAnswer = this.randomIndex(this.dAnswer)  //the default Answer
     var understood = this.randomIndex(this.understood)
 
-    //Chat History speichern
+    //save the message of the user in the json file
     this.saveChatMessageUser(this.sender, nachricht)
 
-    //Prüft ob der User im aktuellen Intent fortfahren will
+    //checks if the user wants to continue the action, if there is a question and the user says no, 
+    // it resets the question and intent
     if (this.readQuestion(this.sender) != "" && this.dontContinue(nachricht)){
       var questionAsked = true;
       this.saveQuestion("", this.sender)
       this.saveIntent([], this.sender)
       this.saveSelection("", this.sender)
       inhalt = understood + " "
+      this.saveBiomeId(0, this.sender)
     }
 
-    //Überprüft, ob es schon einen Intent vorher gab, der erweitert wird
+    //checks if there was an intent the user wants to continue
     if (this.readIntent(this.sender).length != 0){
       inhalt = this.runThroughList(this.readIntent(this.sender), nachricht, defaultAnswer)
       if (inhalt == defaultAnswer){
@@ -120,7 +122,7 @@ class bot {
         this.changeFallBackCounter(this.sender, false)
       }
     } else {
-      //Geht durch die ganze JSON Datei
+      //checks the whole json file for keywords and reacts with the corresponding answer
       inhalt += this.runThroughList(this.chatBot.answers, nachricht, defaultAnswer)
     }
 
@@ -129,45 +131,48 @@ class bot {
       this.changeFallBackCounter(this.sender, false)
     }
 
-    //Hard Fallback -> Setzt alles auf Anfang
+    //Hard Fallback -> if the bot does not understand the user 3 times in a row, it resets everything and starts over
     if (inhalt == defaultAnswer){
       this.changeFallBackCounter(this.sender, false)
     }
     if (this.readFallBackCounter(this.sender) == 3){
-      inhalt = "Da ich dich nun mehrfach nicht verstanden habe fangen wir nun von vorne an. " + this.randomIndex(this.needHelp)
+      inhalt = "Da ich dich nun mehrfach nicht verstanden habe fangen wir von vorne an. " + this.randomIndex(this.needHelp)
       this.saveIntent([], this.sender)
       this.saveQuestion("", this.sender)
       this.changeFallBackCounter(this.sender, true)
       this.saveSelection("", this.sender)
+      this.saveBiomeId(0, this.sender)
     }
 
     this.saveChatMessageBot(this.sender, inhalt)
 
-    //Verarbeitung
-    var msg = '{"type": "msg", "name":"' + name + '", "msg":"' + inhalt + '","sender":"'+this.sender+'"}'
+    //processing the message and sending it to the server
+    var msg = JSON.stringify({type: "msg", name: name, msg: inhalt, sender: this.sender, biomeId: this.readBiomeId(this.sender)});
     console.log('Send: ' + msg)
     this.client.con.sendUTF(msg)
-    
   }
 
-  //Durchläuft eine Liste
+  //runs through a list of keywords
   runThroughList (list, nachricht, defaultAnswer) {
   var inhalt = defaultAnswer
   for (var i = 0; i < list.length; i++) {
     for (var j = 0; j < list[i].intent.length; j++) {
-      //Wenn die Nachricht den Intent beinhält schaut er ob es noch eine Unterliste gibt
+      //if the message contains a keyword, the bot reacts with the corresponding answer and saves the intent and question for further use
       if (nachricht.includes(list[i].intent[j])) { 
         if (list[i].list) {
-          //ruft sich rekursiv auf mit der Unterliste
+          //recursive call to run through the list of keywords, if there is a sublist
           this.saveIntent(list[i].list, this.sender)
           this.saveQuestion(list[i].question, this.sender)
           this.saveSelection(this.randomIndex(list[i].selection), this.sender)
+          if (list[i].id){
+            this.saveBiomeId(Number(list[i].id), this.sender)
+          }
           inhalt = this.runThroughList(list[i].list, nachricht, defaultAnswer) 
         } else {
           this.saveIntent([], this.sender)
           this.saveQuestion("", this.sender)
         }
-        //Wenn keine weitere Antwort gefunden wurde gibt er passende aus
+        //if no other answer was found, the bot reacts with the default answer, otherwise with the corresponding answer
         if (inhalt == defaultAnswer){
           inhalt = this.randomIndex(list[i].answer)
           }  
@@ -180,13 +185,12 @@ class bot {
 }
 
 
-  //Überprüft ob Eingabe ein Array ist.
-  //Wenn ja, gibt einen random Index aus.
+  //if there are multiple answers for a keyword, the bot reacts with a random answer from the list
   randomIndex(array){
     if (Array.isArray(array)){
       return array[Math.floor(Math.random()*array.length)]
     } else {
-      return array;
+      return array
     }
   }
 
@@ -210,169 +214,177 @@ class bot {
     return false
   }
 
-  //Speichert den Sender und die Nachricht als Eintrag in der json Datei
+  //Saves the message of the user in the json file. 
+  //If the user is not in the json file, it creates a new entry for the user.
   saveChatMessageUser(sender, nachricht) {
-    //Datei laden oder initialisieren
-    let data = { users: [] };
+    //load or initialize the file
+    let data = { users: [] }
     if (fs.existsSync(LOGFILE)) {
-      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'));
+      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'))
     }
 
-    //User suchen
-    let user = data.users.find(u => u.username === sender);
+    //search for the user
+    let user = data.users.find(u => u.username === sender)
     if (!user) {
-      // falls nicht gefunden: neu anlegen
+      //if not found: create new entry
       user = {
         username: sender,
         currentIntent: [],
+        currentBiomeId: 0,
         currentQuestion: "",
         currentSelection: "",
         fallBackCounter: 0,
         chathistory: []
       };
-      data.users.push(user);
+      data.users.push(user)
     }
 
-    //Nachricht ans chathistory-Array anhängen
+    //save the message in the chathistory array
     user.chathistory.push({
       sender: sender,
       message: nachricht,
       timestamp: new Date().toISOString()
     });
 
-    //Alles wieder zurückschreiben
-    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8');
+    //write everything back to the file
+    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8')
   }
 
+  //Saves the message of the bot in the json file.
   saveChatMessageBot(sender, nachricht) {
-    //Datei laden oder initialisieren
-    let data = { users: [] };
+    //load or initialize the file
+    let data = { users: [] }
     if (fs.existsSync(LOGFILE)) {
-      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'));
+      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'))
     }
 
-    //User suchen
-    let user = data.users.find(u => u.username === sender);
+    //search for the user
+    let user = data.users.find(u => u.username === sender)
     if (!user) {
-      // falls nicht gefunden: neu anlegen
+      //if not found: create new entry
       user = {
         username: sender,
         currentIntent: [],
+        currentBiomeId: 0,
         currentQuestion: "",
         currentSelection: "",
         fallBackCounter: 0,
         chathistory: []
       };
-      data.users.push(user);
+      data.users.push(user)
     }
 
-    //Nachricht ans chathistory-Array anhängen
+    //save the message in the chathistory array
     user.chathistory.push({
       sender: this.botName,
       message: nachricht,
       timestamp: new Date().toISOString()
     });
 
-    // Alles wieder zurückschreiben
-    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8');
+    //write everything back to the file
+    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8')
   }
 
+  //Saves the current intent of the user in the json file.
   saveIntent(currentIntent, sender){
-    //Datei laden oder initialisieren
-    let data = { users: [] };
+    //load or initialize the file
+    let data = { users: [] }
     if (fs.existsSync(LOGFILE)) {
-      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'));
+      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'))
     }
 
-    //User suchen
-    let user = data.users.find(u => u.username === sender);
+    //search for the user
+    let user = data.users.find(u => u.username === sender)
 
     user.currentIntent = currentIntent
 
-    // Alles wieder zurückschreiben
-    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8');
+    //write everything back to the file
+    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8')
   }
 
+  //Reads the current intent of the user from the json file.
   readIntent(sender){
-    //Datei laden oder initialisieren
-    let data = { users: [] };
+    //load or initialize the file
+    let data = { users: [] }
     if (fs.existsSync(LOGFILE)) {
-      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'));
+      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'))
     }
 
-    //User suchen
+    //search for the user
     let user = data.users.find(u => u.username === sender);
 
     return user.currentIntent
   }
 
+  //saves the current question of the user in the json file.
   saveQuestion(currentQuestion, sender){
-    //Datei laden oder initialisieren
-    let data = { users: [] };
+    //load or initialize the file
+    let data = { users: [] }
     if (fs.existsSync(LOGFILE)) {
-      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'));
+      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'))
     }
 
-    //User suchen
+    //search for the user
     let user = data.users.find(u => u.username === sender);
 
     user.currentQuestion = currentQuestion
 
-    // Alles wieder zurückschreiben
-    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8');
+    //write everything back to the file
+    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8')
   }
 
+  //reads the current question of the user from the json file.
   readQuestion(sender){
-    //Datei laden oder initialisieren
+    //load or initialize the file
     let data = { users: [] };
     if (fs.existsSync(LOGFILE)) {
       data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'));
     }
 
-    //User suchen
-    let user = data.users.find(u => u.username === sender);
+    //search for the user
+    let user = data.users.find(u => u.username === sender)
 
     return user.currentQuestion
   }
 
   saveSelection(currentSelection, sender){
-    //Datei laden oder initialisieren
-    let data = { users: [] };
+    //load or initialize the file
+    let data = { users: [] }
     if (fs.existsSync(LOGFILE)) {
-      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'));
+      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'))
     }
 
-    //User suchen
-    let user = data.users.find(u => u.username === sender);
+    //search for the user
+    let user = data.users.find(u => u.username === sender)
 
     user.currentSelection = currentSelection
 
-    // Alles wieder zurückschreiben
-    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8');
+    //write everything back to the file
+    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8')
   }
 
   readSelection(sender){
-    //Datei laden oder initialisieren
-    let data = { users: [] };
+    //load or initialize the file
+    let data = { users: [] }
     if (fs.existsSync(LOGFILE)) {
-      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'));
+      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'))
     }
 
-    //User suchen
-    let user = data.users.find(u => u.username === sender);
+    //search for the user
+    let user = data.users.find(u => u.username === sender)
 
     return user.currentSelection
   }
 
   changeFallBackCounter(sender, reset){
-    //Datei laden oder initialisieren
-    let data = { users: [] };
+    //load or initialize the file
+    let data = { users: [] }
     if (fs.existsSync(LOGFILE)) {
-      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'));
+      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'))
     }
 
-    //User suchen
-    let user = data.users.find(u => u.username === sender);
+    //search for the user
+    let user = data.users.find(u => u.username === sender)
 
     if (reset == false){
       user.fallBackCounter++
@@ -380,22 +392,53 @@ class bot {
       user.fallBackCounter = 0
     }
     
-    // Alles wieder zurückschreiben
-    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8');
+    //write everything back to the file
+    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8')
   }
 
   readFallBackCounter(sender){
-    //Datei laden oder initialisieren
+    //load or initialize the file
+    let data = { users: [] }
+    if (fs.existsSync(LOGFILE)) {
+      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'))
+    }
+
+    //search for the user
+    let user = data.users.find(u => u.username === sender)
+
+    return user.fallBackCounter
+  }
+
+  //reads the current biome ID of the user from the json file.
+  readBiomeId(sender){
+    //load or initialize the file
     let data = { users: [] };
     if (fs.existsSync(LOGFILE)) {
       data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'));
     }
 
-    //User suchen
-    let user = data.users.find(u => u.username === sender);
+    //search for the user
+    let user = data.users.find(u => u.username === sender)
 
-    return user.fallBackCounter
+    return user.currentBiomeId
   }
+
+  saveBiomeId(currentBiomeId, sender){
+    //load or initialize the file
+    let data = { users: [] }
+    if (fs.existsSync(LOGFILE)) {
+      data = JSON.parse(fs.readFileSync(LOGFILE, 'utf8'))
+    }
+
+    //search for the user
+    let user = data.users.find(u => u.username === sender)
+
+    user.currentBiomeId = currentBiomeId
+
+    //write everything back to the file
+    fs.writeFileSync(LOGFILE, JSON.stringify(data, null, 2), 'utf8')
+  }
+
 }
 
 

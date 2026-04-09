@@ -4,7 +4,8 @@ let i = 0;
 const socket = new WebSocket('ws://127.0.0.1:10000/', 'chat');
 //const socket = new WebSocket('wss://chathtmlspotter2-0.onrender.com', 'chat');
 let name = 'u1';
-let z = 0;
+let helloCounter = 0;
+let currentBiomeId = 0;
 
 socket.onopen = function () {
   name = "Spieler" + Math.floor(Math.random()*1000); 
@@ -41,7 +42,7 @@ async function loadHello() {
 };
 
 socket.onmessage = function (msg) {
-  z++;
+  helloCounter++;
   const data = JSON.parse(msg.data);
   switch (data.type) {
     case 'msg':
@@ -53,6 +54,28 @@ socket.onmessage = function (msg) {
         answers[i] = data.msg;
         i++;
       }
+      
+      const biome = Number(data.biomeId);
+      if (biome != currentBiomeId) {
+        currentBiomeId = biome;
+        switch (biome) {
+          case 0:
+            document.body.style.backgroundImage = 'url("../images/minecraft-cherry-blossom-biome.jpg")';
+            break;
+          case 1:
+            document.body.style.backgroundImage = 'url("../images/desert.png")';
+            break;
+          case 4:
+            document.body.style.backgroundImage = 'url("../images/mesa.png")';
+            break;
+          case 6:
+            document.body.style.backgroundImage = 'url("../images/plains.png")';
+            break;
+      } 
+      } else {
+        document.body.style.backgroundImage = 'url("../images/minecraft-cherry-blossom-biome.jpg")';
+      }
+            
       break;
 
     case 'join':
@@ -62,7 +85,7 @@ socket.onmessage = function (msg) {
         $('#users').append('<div>' + data.names[j] + '</div>');
       }
       //Verhindert, dass beim Serverstart der Bot zweimal "Hallo" sagt
-      if (z == 1){
+      if (helloCounter == 1){
         loadHello();
       }
       break;
